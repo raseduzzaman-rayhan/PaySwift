@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Main File</title>
+</head>
+
+<body class="bg-gray-800">
+    <section class="max-w-md min-h-screen mx-auto py-6 bg-gray-200 p-3">
+        <!-- Header -->
+        <div class="flex justify-between items-center mb-4 border-b-[1px] py-2 border-gray-300">
+            <div>
+                <div class="flex items-center">
+                    <div class="">
+                        <img id="home-btn" src="/Images/Group.png" alt="" class="w-16 cursor-pointer">
+                    </div>
+                    <div class="">
+                        <p class="text-xl font-bold text-blue-600">$ <span id="main-balance">45000</span></p>
+                        <p class="text-sm text-gray-500">Available Balance</p>
+                    </div>
+                </div>
+            </div>
+            <button id="logout-btn"
+                class="border px-3 py-1 rounded-lg text-sm text-gray-700 flex items-center gap-1 hover:bg-gray-100">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M17 16l4-4m0 0l-4-4m4 4H7" />
+                </svg>
+                Log Out
+            </button>
+        </div>
+
+        <!-- Welcome -->
+        <div class="mb-6">
+            <h2 class="text-xl font-semibold mb-1">🔥 Welcome to PaySwift!</h2>
+            <p class="text-sm text-gray-600">Enjoy easy and convenient financial services with us. Cashout charge is low
+                and
+            </p>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="grid grid-cols-3 gap-3 text-center">
+            <!-- Add Money -->
+            <div id="add-money-box" class="border rounded-xl p-3 cursor-pointer">
+                <img src="/Images/wallet1.png" alt="Add" class="mx-auto w-8 h-8 mb-1">
+                <p class="text-sm font-medium">Add Money</p>
+            </div>
+
+            <!-- Cashout -->
+            <div id="cashout-box" class="border rounded-xl p-3 cursor-pointer">
+                <img src="/Images/send1.png" alt="Cashout" class="mx-auto w-8 h-8 mb-1">
+                <p class="text-sm font-medium">Cashout</p>
+            </div>
+
+            <!-- Transfer Money -->
+            <div id="transfer-money-box" class="border rounded-xl p-3 cursor-pointer">
+                <img src="/Images/money1.png" alt="Transfer" class="mx-auto w-8 h-8 mb-1">
+                <p class="text-sm font-medium">Transfer Money</p>
+            </div>
+
+            <!-- Get Bonus -->
+            <div id="get-bonus-box" class="border rounded-xl p-3 cursor-pointer">
+                <img src="/Images/bonus1.png" alt="Bonus" class="mx-auto w-8 h-8 mb-1">
+                <p class="text-sm font-medium">Get Bonus</p>
+            </div>
+
+            <!-- Pay Bill -->
+            <div class="border rounded-xl p-3 cursor-pointer">
+                <img src="/Images/purse1.png" alt="Pay Bill" class="mx-auto w-8 h-8 mb-1">
+                <p class="text-sm font-medium">Pay Bill</p>
+            </div>
+
+            <!-- Transactions -->
+            <div id="transaction-history-box" class="border rounded-xl p-3 cursor-pointer">
+                <img src="/Images/wallet1.png" alt="Transactions" class="mx-auto w-8 h-8 mb-1">
+                <p class="text-sm font-medium">Transactions</p>
+            </div>
+        </div>
+        <section id="add-money-section">
+
+            <div class="bg-white p-6 rounded-2xl shadow-lg w-full max-w-sm mx-auto mt-10">
+                <h2 class="text-xl font-bold mb-4 text-center text-blue-700">Add Money</h2>
+                <form>
+                    <fieldset class="space-y-4">
+
+                        <!-- Select Bank -->
+                        <div>
+                            <label for="bank" class="block text-sm font-medium text-gray-700 mb-1">Select A
+                                Bank</label>
+                            <select id="bank" name="bank"
+                                class="w-full px-4 py-3 rounded-full bg-gray-100 focus:outline-none">
+                                <option disabled selected>Select bank</option>
+                                <option value="brac">BRAC Bank</option>
+                                <option value="dbbl">DBBL</option>
+                                <option value="city">City Bank</option>
+                            </select>
+                        </div>
+
+                        <!-- Account Number -->
+                        <div>
+                            <label for="account" class="block text-sm font-medium text-gray-700 mb-1">Bank Account
+                                Number</label>
+                            <input type="text" id="account" name="account" placeholder="Enter Account Number"
+                                class="w-full px-4 py-3 rounded-full bg-gray-100 focus:outline-none" maxlength="11">
+                        </div>
+
+                        <!-- Amount -->
+                        <div>
+                            <label for="amount" class="block text-sm font-medium text-gray-700 mb-1">Amount to
+                                Add</label>
+                            <input type="number" id="amount" name="amount" placeholder="Enter Add Amount"
+                                class="w-full px-4 py-3 rounded-full bg-gray-100 focus:outline-none">
+                        </div>
+
+                        <!-- Pin Number -->
+                        <div>
+                            <label for="pin" class="block text-sm font-medium text-gray-700 mb-1">Pin Number</label>
+                            <input type="password" id="amountPin" name="pin" placeholder="Enter Pin Number"
+                                class="w-full px-4 py-3 rounded-full bg-gray-100 focus:outline-none" maxlength="4">
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div>
+                            <button id="add-money-btn" type="submit"
+                                class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-full font-semibold">
+                                Add Money
+                            </button>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </section>
+
+        <!-- Cashout Section  --> 
+        <section id="cashout-section">
+
+            <div class="bg-white p-6 rounded-2xl shadow-lg w-full max-w-sm mx-auto mt-10">
+                <h2 class="text-xl font-bold mb-4 text-center text-red-700">Cash Out</h2>
+                <form>
+                    <fieldset class="space-y-4">
+                        <!-- Agent Account Number -->
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Agent
+                                Number</label>
+                            <input type="text" placeholder="Enter Agent Number"
+                                class="w-full px-4 py-3 rounded-full bg-gray-100 focus:outline-none" maxlength="11">
+                        </div>
+
+                        <!-- Amount -->
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Amount to
+                                Add</label>
+                            <input type="number" id="cashout-amount" placeholder="Enter Amount"
+                                class="w-full px-4 py-3 rounded-full bg-gray-100 focus:outline-none">
+                        </div>
+
+                        <!-- Pin Number -->
+                        <div>
+                            <label for="pin" class="block text-sm font-medium text-gray-700 mb-1">Pin Number</label>
+                            <input type="password" id="cashout-pin" placeholder="Enter Pin Number"
+                                class="w-full px-4 py-3 rounded-full bg-gray-100 focus:outline-none" maxlength="4">
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div>
+                            <button id="cashout-btn" type="submit"
+                                class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-full font-semibold">
+                                Cash Out
+                            </button>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </section>
+        <!-- Transfer Money  Section  -->
+        <section id="transfer-money-section">
+            <div class="bg-white p-6 rounded-2xl shadow-lg w-full max-w-sm mx-auto mt-10">
+                <h2 class="text-xl font-bold mb-4 text-center text-green-700">Transfer Money</h2>
+                <form>
+                    <fieldset class="space-y-4">
+
+                        <!-- Receiver Bank -->
+                        <div>
+                            <label for="receiver-bank" class="block text-sm font-medium text-gray-700 mb-1">Receiver's
+                                Bank</label>
+                            <select id="receiver-bank" name="receiver-bank"
+                                class="w-full px-4 py-3 rounded-full bg-gray-100 focus:outline-none" required>
+                                <option value="" disabled selected>Select bank</option>
+                                <option value="brac">BRAC Bank</option>
+                                <option value="dbbl">DBBL</option>
+                                <option value="city">City Bank</option>
+                            </select>
+                        </div>
+
+                        <!-- Receiver Account Number -->
+                        <div>
+                            <label for="receiver-account"
+                                class="block text-sm font-medium text-gray-700 mb-1">Receiver's Account Number</label>
+                            <input type="text" id="receiver-account" name="receiver-account"
+                                placeholder="Enter Account Number"
+                                class="w-full px-4 py-3 rounded-full bg-gray-100 focus:outline-none" maxlength="11"
+                                inputmode="numeric" required>
+                        </div>
+
+                        <!-- Amount -->
+                        <div>
+                            <label for="transfer-amount" class="block text-sm font-medium text-gray-700 mb-1">Amount to
+                                Transfer</label>
+                            <input type="number" id="transfer-amount" name="amount" placeholder="Enter Amount"
+                                class="w-full px-4 py-3 rounded-full bg-gray-100 focus:outline-none" required>
+                        </div>
+
+                        <!-- Pin Number -->
+                        <div>
+                            <label for="transfer-pin" class="block text-sm font-medium text-gray-700 mb-1">Your Pin
+                                Number</label>
+                            <input type="password" id="transfer-pin" name="pin" placeholder="Enter Pin Number"
+                                class="w-full px-4 py-3 rounded-full bg-gray-100 focus:outline-none" maxlength="4"
+                                inputmode="numeric" required>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div>
+                            <button id="transfer-money-btn" type="submit"
+                                class="w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-full font-semibold">
+                                Transfer Money
+                            </button>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </section>
+
+        <section id="get-bonus-section">
+            <div class="bg-white p-6 rounded-2xl shadow-lg w-full max-w-sm mx-auto mt-10">
+                <h2 class="text-xl font-bold mb-4 text-center text-green-700">Get Bonus</h2>
+                <form>
+                    <fieldset class="space-y-4">
+
+                        <!-- Referral Code -->
+                        <div>
+                            <label for="referralCode" class="block text-sm font-medium text-gray-700 mb-1">
+                                Enter Referral Code
+                            </label>
+                            <input type="text" id="referralCode" name="referralCode" placeholder="e.g. BONUS123"
+                                class="w-full px-4 py-3 rounded-full bg-gray-100 focus:outline-none uppercase">
+                        </div>
+
+                        <!-- Reason for Bonus -->
+                        <div>
+                            <label for="bonusReason" class="block text-sm font-medium text-gray-700 mb-1">
+                                Select Bonus Type
+                            </label>
+                            <select id="bonusReason" name="bonusReason"
+                                class="w-full px-4 py-3 rounded-full bg-gray-100 focus:outline-none">
+                                <option disabled selected>Select reason</option>
+                                <option value="signup">Sign-up Bonus</option>
+                                <option value="referral">Referral Bonus</option>
+                                <option value="promo">Promo Code</option>
+                            </select>
+                        </div>
+
+                        <!-- Pin Confirmation -->
+                        <div>
+                            <label for="bonusPin" class="block text-sm font-medium text-gray-700 mb-1">
+                                Confirm Pin
+                            </label>
+                            <input type="password" id="bonusPin" name="bonusPin" placeholder="Enter 4-digit PIN"
+                                class="w-full px-4 py-3 rounded-full bg-gray-100 focus:outline-none" maxlength="4">
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div>
+                            <button type="submit"
+                                class="w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-full font-semibold">
+                                Claim Bonus
+                            </button>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </section>
+        <!-- Transactions History -->
+
+        <section id="transaction-history-section" class="mt-10 max-w-2xl mx-auto px-4">
+            <div class="bg-white shadow-lg rounded-2xl overflow-hidden">
+                <h2 class="text-xl font-bold text-center text-purple-700 p-4 border-b">Transaction History</h2>
+                <div class="divide-y">
+                    <!-- Transaction Item -->
+                    <div class="flex justify-between items-center px-4 py-3">
+                        <div>
+                            <p class="font-semibold text-gray-800">Add Money</p>
+                            <p class="text-sm text-gray-500">July 20, 2025 • BRAC Bank</p>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-green-600 font-bold">+৳1,000</p>
+                            <p class="text-xs text-gray-500">Success</p>
+                        </div>
+                    </div>
+
+                    <!-- Another Transaction -->
+                    <div class="flex justify-between items-center px-4 py-3">
+                        <div>
+                            <p class="font-semibold text-gray-800">Pay Electricity Bill</p>
+                            <p class="text-sm text-gray-500">July 18, 2025 • DPDC</p>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-red-600 font-bold">–৳750</p>
+                            <p class="text-xs text-gray-500">Success</p>
+                        </div>
+                    </div>
+
+                    <!-- Failed Bonus -->
+                    <div class="flex justify-between items-center px-4 py-3">
+                        <div>
+                            <p class="font-semibold text-gray-800">Referral Bonus</p>
+                            <p class="text-sm text-gray-500">July 15, 2025 • Referral Code</p>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-yellow-600 font-bold">Pending</p>
+                            <p class="text-xs text-gray-500">Under Review</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+    </section>
+
+    <script src="./script/addMoney.js"></script>
+    <script src="./script/cashOut.js"></script>
+    <script src="/script/toggle.js"></script>
+
+</body>
+
+</html>
